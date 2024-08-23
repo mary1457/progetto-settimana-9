@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'boxicons';
 import './App.css';
-
+import MyNav from './components/MyNav'
+import MyFooter from './components/MyFooter';
+import MyCarousel from './components/MyCarousel';
+import { Container } from 'react-bootstrap';
+import MyHero from './components/MyHero.jsx';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="App bg-dark">
+      <header className="">
+      <MyNav></MyNav>
       </header>
+      <main className=''>
+        <Container fluid> 
+          <MyHero></MyHero>
+          <MyCarousel></MyCarousel>
+          </Container>
+       
+      </main>
+      <footer>
+        <MyFooter></MyFooter>
+      </footer>
     </div>
   );
 }
