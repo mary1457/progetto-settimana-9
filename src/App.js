@@ -12,7 +12,7 @@ function App() {
       <header className="">
       <MyNav></MyNav>
       </header>
-      <main className=''>
+      <main className='border border-1 border-end-0 border-start-0 border-black pt-3 pb-3' >
         <Container fluid> 
           <MyHero></MyHero>
           <MyCarousel></MyCarousel>

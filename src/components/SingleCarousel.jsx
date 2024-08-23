@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Row, Col ,Carousel, Alert, Spinner, } from 'react-bootstrap';
+import '../style.css'; 
 class SingleCarousel extends Component {
     state = {
         films: [],
@@ -55,7 +56,7 @@ class SingleCarousel extends Component {
               </Alert>
             )}
           </div>
-                    <Carousel className='h-100'
+                    <Carousel className='h-100 mb-4' interval={null}
                         onSlide={(i) => {
 
                             this.setState({
@@ -64,24 +65,24 @@ class SingleCarousel extends Component {
                             })
                         }}
                     ><Carousel.Item className='h-100' >
-                        <Row className='h-100 p-3'>
+                        <Row className='h-100 '>
                         {this.state.films.slice(0, 4).map((film) => {
                             return (
                                 
-                                    <Col  key={film.imdbID}>  <img className="w-100 d-inline h-100" src={film.Poster} alt="dog pic" />
+                                    <Col  key={film.imdbID}>  <img className="w-100 d-inline film-image " src={film.Poster} alt="" />
                                     </Col>
                                   
                                 
                             )
                         })}
                         </Row >
-                        </Carousel.Item>
+                        </Carousel.Item >
                         <Carousel.Item active="true" className='h-100'>
-                        <Row className='h-100 p-3'>
+                        <Row className='h-100 '>
                         {this.state.films.slice(4,8).map((film) => {
                             return (
                                 
-                                    <Col  key={film.imdbID}>  <img className="w-100 d-inline h-100" src={film.Poster} alt="dog pic" />
+                                    <Col  key={film.imdbID}>  <img className="w-100 d-inline film-image " src={film.Poster} alt="" />
                                     </Col>
                                   
                                 
