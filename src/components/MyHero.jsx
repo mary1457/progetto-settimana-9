@@ -4,7 +4,7 @@ import { FaTh, FaThLarge } from 'react-icons/fa'; // Importa icone alternative d
 
 const MyHero = () => {
   return (
-    <div className="d-flex justify-content-between mb-4">
+    <div className="d-flex justify-content-between mb-4 ms-1 me-1">
       <div className="d-flex">
         <h2 className=" text-white">TV Shows</h2>
         <div className="btn-group" role="group">

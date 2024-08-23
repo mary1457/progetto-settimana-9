@@ -1,9 +1,11 @@
 import { Component } from 'react'
-import { Row, Col ,Carousel} from 'react-bootstrap';
+import { Row, Col ,Carousel, Alert, Spinner, } from 'react-bootstrap';
 class SingleCarousel extends Component {
     state = {
         films: [],
         currentfilm: {},
+        isLoading: true,
+        isError: false,
     }
     componentDidMount = () => {
         console.log('SONO IN COMPONENTDIDMOUNT')
@@ -29,19 +31,31 @@ class SingleCarousel extends Component {
 
                 this.setState({
                     films: objectFilms.Search,
+                    isLoading: false,
                 })
                 console.log('EVENTI A DB', this.state)
             })
             .catch((error) => {
-
+                this.setState({
+                    isLoading: false,
+                    isError: true, 
+                  })
                 console.log('ERRORE!', error)
             })
     }
     render() {
-        return (
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
-                <Col className="mb-2 text-center px-1">
-                    <Carousel
+        return (<>
+            <div className="d-flex justify-content-center mb-3">
+            {this.state.isLoading && (
+              <Spinner animation="border" variant="danger" />
+            )}
+            {this.state.isError && (
+              <Alert variant="danger">
+                Errore
+              </Alert>
+            )}
+          </div>
+                    <Carousel className='h-100'
                         onSlide={(i) => {
 
                             this.setState({
@@ -49,22 +63,38 @@ class SingleCarousel extends Component {
                                 currentfilm: this.state.films[i],
                             })
                         }}
-                    >
-                        {this.state.films.slice(0, 8).map((film) => {
+                    ><Carousel.Item className='h-100' >
+                        <Row className='h-100 p-3'>
+                        {this.state.films.slice(0, 4).map((film) => {
                             return (
-                                <Carousel.Item key={film.imdbID}>
-                                    <img className="w-100" src={film.Poster} alt="dog pic" />
-
-                                </Carousel.Item>
+                                
+                                    <Col  key={film.imdbID}>  <img className="w-100 d-inline h-100" src={film.Poster} alt="dog pic" />
+                                    </Col>
+                                  
+                                
                             )
                         })}
+                        </Row >
+                        </Carousel.Item>
+                        <Carousel.Item active="true" className='h-100'>
+                        <Row className='h-100 p-3'>
+                        {this.state.films.slice(4,8).map((film) => {
+                            return (
+                                
+                                    <Col  key={film.imdbID}>  <img className="w-100 d-inline h-100" src={film.Poster} alt="dog pic" />
+                                    </Col>
+                                  
+                                
+                            )
+                        })}
+                        </Row>
+        </Carousel.Item>
                     </Carousel>
-                </Col>
-
-            </Row>
+                
 
 
 
+                    </>
 
 
         );
