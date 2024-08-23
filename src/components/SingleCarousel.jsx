@@ -56,7 +56,7 @@ class SingleCarousel extends Component {
               </Alert>
             )}
           </div>
-                    <Carousel className='h-100 mb-4' interval={null}
+                    <Carousel className='h-100 mb-4' interval={null} indicators={false}
                         onSlide={(i) => {
 
                             this.setState({
