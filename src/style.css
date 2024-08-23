@@ -1,15 +1,15 @@
 .film-image {
     height: 100%; /* L'immagine occupa tutta l'altezza del contenitore */
     width: 100%;  /* L'immagine occupa tutta la larghezza del contenitore */
-    object-fit: contain; /* Mantiene le proporzioni e ritaglia se necessario */
+    object-fit: cover; /* Mantiene le proporzioni e ritaglia se necessario */
   }
 
   /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
     .film-image {
-        height: 170px; 
-        
-      }
+        height: 815px; 
+       
+      } 
 }
 
 
@@ -17,7 +17,7 @@
 @media (min-width: 768px) {
    
     .film-image {
-        height: 240px; 
+        height: 530px; 
         
       }
 
@@ -29,7 +29,7 @@
    
 
     .film-image {
-        height: 325px; 
+        height: 335px; 
         
       }
 
@@ -39,13 +39,13 @@
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     .film-image {
-        height: 400px; 
+        height: 415px; 
         
       }
 }
 
 @media (min-width: 1400px) { .film-image {
-    height: 480px; 
+    height: 510px; 
     
   }
 }
